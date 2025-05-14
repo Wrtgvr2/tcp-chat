@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  tcp-char-server:
+    build: .
+    container_name: tcp-chat
+    ports:
+      - "9000:9000"
+    restart: unless-stopped
