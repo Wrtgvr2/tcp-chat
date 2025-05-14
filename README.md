@@ -13,27 +13,17 @@ Small and simple CLI chat built with Go.
   cd tcp-chat
   ```
 2. Run server:
-  Without Docker:
-  - Run server `.go` file:
-  ```bash
-  go run ./server/
-  ```
-  or
-  - Build server `.exe` file:
-  ```bash
-  go build ./server/
-  ```
-  With Docker:
-  ```bash
-  docker-compose up
-  ```
+  - Without Docker:
+    - Build server `.exe` file and run it:
+    ```bash
+    go build ./server/
+    ```
+  - With Docker:
+    ```bash
+    docker-compose up
+    ```
 3. Run client:
-  - Run client `.go` file:
-  ```bash
-  go run ./client/
-  ```
-  or
-  - Build client `.exe` file:
+  - Build client `.exe` file and run it:
   ```
   go build ./client/
   ```
