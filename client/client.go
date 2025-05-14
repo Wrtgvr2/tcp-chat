@@ -11,10 +11,13 @@ import (
 func main() {
 	addr, err := net.ResolveTCPAddr("tcp", "localhost:9000")
 	if err != nil {
-		panic(err)
+		fmt.Printf("ERROR: %v", err)
+		fmt.Scan()
 	}
 	conn, err := net.DialTCP("tcp", nil, addr)
 	if err != nil {
+		fmt.Println("Unable to connect to server")
+		fmt.Scan()
 		panic(err)
 	}
 	defer conn.Close()
