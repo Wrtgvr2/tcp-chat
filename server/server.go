@@ -34,13 +34,14 @@ func initCommands() {
 		fn: func(conn net.Conn) {
 			text := ""
 			for cmdName, cmd := range cmds {
-				text += fmt.Sprintf("%s - %s\n", cmdName, cmd.desc)
+				text += fmt.Sprintf("%s - %s ||", cmdName, cmd.desc)
 			}
+			text = fmt.Sprintln(text)
 			conn.Write([]byte(text))
 		},
 	}
 	cmds["!online"] = Command{
-		desc: "Shows cuurent chat online",
+		desc: "Shows current chat online",
 		fn: func(conn net.Conn) {
 			text := fmt.Sprintf("Current chat online: %d\n", len(users))
 			conn.Write([]byte(text))
@@ -117,7 +118,7 @@ func broadcaster() {
 }
 
 func main() {
-	addr, err := net.ResolveTCPAddr("tcp", "localhost:9000")
+	addr, err := net.ResolveTCPAddr("tcp", "0.0.0.0:9000")
 	if err != nil {
 		panic(err)
 	}
